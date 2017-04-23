@@ -27,7 +27,7 @@
 
 	<mvc:annotation-driven/>
 	<context:annotation-config />
-	<context:component-scan base-package="cn.com.sparknet.*">
+	<context:component-scan base-package="cn.com.customer.*">
 		<!-- 过滤掉@Controller的类 -->
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
@@ -66,12 +66,5 @@
 			</list>
 		</property>
 	</bean>
-	<!-- 拦截器 -->
-	<mvc:interceptors>
-		<mvc:interceptor>
-			<mvc:mapping path="/**"/>
-			<bean class="cn.com.sparknet.common.handInterceptor.CustomerHandInterceptor"></bean>
-		</mvc:interceptor>
-	</mvc:interceptors>
 
 </beans>

@@ -31,17 +31,11 @@ public class BaseJdbcDao extends JdbcDaoSupport{
 	private static Logger log = Logger.getLogger(BaseJdbcDao.class);
 	
 	@Resource
-	public void setMyJdbcTemplate(@Qualifier("jdbcTemplate") JdbcTemplate jdbcTemplate) {
-		super.setJdbcTemplate(jdbcTemplate);
-	}
+	JdbcTemplate jdbcTemplate;
+//	public void setMyJdbcTemplate(@Qualifier("jdbcTemplate") JdbcTemplate jdbcTemplate) {
+//		super.setJdbcTemplate(jdbcTemplate);
+//	}
 	
-	/**
-	 * 获取jdbcTemplate对象
-	 * */
-	public JdbcTemplate getNewJdbcTemplate(){
-		return this.getJdbcTemplate();
-	}
-
 	/**
 	 * Int查询
 	 */

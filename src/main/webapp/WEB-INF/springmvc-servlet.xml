@@ -14,11 +14,10 @@
 		http://www.springframework.org/schema/util
 		http://www.springframework.org/schema/util/spring-util-3.1.xsd">
 
-	<mvc:annotation-driven conversion-service="conversionService" validator="validator"/>
 	<context:annotation-config />
 
 	<!-- 自动扫描且只扫描@Controller -->
-	<context:component-scan base-package="cn.com.sparknet.*" use-default-filters="false">
+	<context:component-scan base-package="cn.com.customer.*" use-default-filters="false">
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
@@ -39,40 +38,5 @@
 			</list>      
 		</property>      
 	</bean>  
-	<!-- 自定义参数绑定 -->
-	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
-		<property name="converters">
-			<list>
-				<bean class="cn.com.sparknet.common.util.converters.CustomerConverters"></bean>
-			</list>
-		</property>
-	</bean>
-	<!-- 校验器 -->
-	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-		<!-- 指定校验器提供方 -->
-		<property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
-		<property name="validationMessageSource" ref="messageSource"></property>
-	</bean>
-	<!-- 校验信息配置文件 -->
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-		<property name="basenames">
-			<list>
-				<value>classpath:customValidationMessage</value>
-			</list>
-		</property>
-		<property name="fileEncodings" value="utf-8"></property>
-		<property name="cacheSeconds" value="120"></property>
-	</bean>
-	<!-- 全局异常处理器 -->
-	<bean class="cn.com.sparknet.common.util.exception.CustomExceptionResolver"></bean>
-	
-	<bean id="multipartResolver"  
-          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-    	<property name="maxUploadSize">
-    		<value>5120000</value>
-    	</property>
-    </bean>  
-
-	
 
 </beans>
