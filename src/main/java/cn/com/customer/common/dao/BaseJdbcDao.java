@@ -17,7 +17,6 @@ import javax.annotation.Resource;
 
 import org.apache.commons.lang.ArrayUtils;
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.support.AbstractLobCreatingPreparedStatementCallback;
